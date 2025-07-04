@@ -3,8 +3,8 @@ import './globals.css'
 
 export const metadata: Metadata = {
   title: 'Weavestudio',
-  description: 'Created with v0',
-  generator: 'v0.dev',
+  description: 'Created with love',
+  generator: 'imemyself',
 }
 
 export default function RootLayout({
