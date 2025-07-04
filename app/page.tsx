@@ -93,7 +93,7 @@ export default function LandingPage() {
                   <div>
                     <h3 className="font-semibold text-stone-900 mb-1">No‑Code Graph Builder</h3>
                     <p className="text-stone-600 text-sm">
-                      Build Agentic workflows which use your tools packaged in an easy to use UI.
+                      We make your products think, learn, and adapt.
                     </p>
                   </div>
                 </div>
