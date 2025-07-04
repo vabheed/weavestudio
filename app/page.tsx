@@ -64,7 +64,7 @@ export default function LandingPage() {
             <div className="space-y-8">
               <div className="space-y-6">
                 <h1 className="text-5xl lg:text-6xl font-bold text-stone-900 leading-tight">
-                  Supercharge your product with Agentic-AI
+                 We make your products think, learn, and adapt
                 </h1>
                 <p className="text-xl text-stone-600 leading-relaxed max-w-2xl">
                   Effortlessly design agentic workflows for your application. Define your tools and worklfow, and we'll
@@ -93,7 +93,7 @@ export default function LandingPage() {
                   <div>
                     <h3 className="font-semibold text-stone-900 mb-1">No‑Code Graph Builder</h3>
                     <p className="text-stone-600 text-sm">
-                      We make your products think, learn, and adapt.
+                      Build Agentic workflows which use your tools packaged in an easy to use UI.
                     </p>
                   </div>
                 </div>
