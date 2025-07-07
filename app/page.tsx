@@ -64,7 +64,7 @@ export default function LandingPage() {
             <div className="space-y-8">
               <div className="space-y-6">
                 <h1 className="text-5xl lg:text-6xl font-bold text-stone-900 leading-tight">
-                 We make your products think, learn, and adapt
+                 Empower Your Product with Intelligent Workflows
                 </h1>
                 <p className="text-xl text-stone-600 leading-relaxed max-w-2xl">
                   Effortlessly design agentic workflows for your application. Define your tools and worklfow, and we'll
