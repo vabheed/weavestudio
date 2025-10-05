@@ -2,287 +2,224 @@
 
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
-import { Shield, Zap, Users, Code, BarChart3, GitBranch, Brain, Store, Menu } from "lucide-react"
-import Image from "next/image"
+import { Layers, ArrowRight, Plug, Blocks, Wand2, Cloud, Rocket, DollarSign, Sparkles } from "lucide-react"
 import Link from "next/link"
+import Image from "next/image"
 import { FORM_LINK } from "@/lib/constants"
 
 export default function LandingPage() {
   const scrollToFooter = () => {
-    const footer = document.getElementById("footer")
-    if (footer) {
-      footer.scrollIntoView({ behavior: "smooth" })
-    }
+    document.getElementById("footer")?.scrollIntoView({ behavior: "smooth" })
   }
 
-  const handleGetEarlyAccess = () => {
+  const openForm = () => {
     window.open(FORM_LINK, "_blank")
   }
 
   return (
     <div className="min-h-screen bg-stone-50">
       {/* Header */}
-      <header className="border-b border-stone-200 bg-white/80 backdrop-blur-sm sticky top-0 z-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center h-16">
-            <div className="flex items-center">
-              <div className="flex items-center space-x-2">
-                <div className="w-8 h-8 bg-gradient-to-br from-purple-500 to-blue-600 rounded-lg flex items-center justify-center">
-                  <svg className="w-5 h-5 text-white" viewBox="0 0 24 24" fill="currentColor">
-                    <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" />
-                  </svg>
-                </div>
-                <span className="text-xl font-bold text-stone-900">Weavestudio</span>
-              </div>
-            </div>
-
-            <nav className="hidden md:flex items-center space-x-8">
-              <Link href="/roadmap" className="text-stone-600 hover:text-stone-900 transition-colors">
-                Roadmap
-              </Link>
-              <button onClick={scrollToFooter} className="text-stone-600 hover:text-stone-900 transition-colors">
-                Contact
-              </button>
-            </nav>
-
-            <div className="flex items-center space-x-4">
-              <Button onClick={handleGetEarlyAccess} className="bg-stone-900 hover:bg-stone-800 text-white">
-                Get Early Access
-              </Button>
-              <Button variant="ghost" size="icon" className="md:hidden">
-                <Menu className="w-5 h-5" />
-              </Button>
-            </div>
+      <header className="border-b border-stone-200 bg-background">
+        <div className="container mx-auto flex h-16 items-center justify-between px-4">
+          <div className="flex items-center gap-2">
+            <Layers className="h-6 w-6 text-primary" />
+            <span className="text-xl font-semibold text-foreground">Weavestudio</span>
           </div>
+          <nav className="hidden md:flex items-center gap-8">
+            <Link
+              href="/roadmap"
+              className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
+            >
+              Roadmap
+            </Link>
+            <button
+              onClick={scrollToFooter}
+              className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
+            >
+              Contact
+            </button>
+          </nav>
+          <Button onClick={openForm} className="bg-primary text-primary-foreground hover:bg-primary/90">
+            Get Early Access
+          </Button>
         </div>
       </header>
 
       {/* Hero Section */}
-      <section className="pt-16 pb-20 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-7xl mx-auto">
-          <div className="grid lg:grid-cols-2 gap-12 items-start">
-            <div className="space-y-8">
-              <div className="space-y-6">
-                <h1 className="text-5xl lg:text-6xl font-bold text-stone-900 leading-tight">
-                 Empower Your Product with Intelligent Workflows
-                </h1>
-                <p className="text-xl text-stone-600 leading-relaxed max-w-2xl">
-                  Effortlessly design agentic workflows for your application. Define your tools and worklfow, and we'll
-                  handle the rest.
-                </p>
-              </div>
-
-              <div className="flex flex-col sm:flex-row gap-4">
-                <Button
-                  size="lg"
-                  onClick={handleGetEarlyAccess}
-                  className="bg-stone-900 hover:bg-stone-800 text-white px-8 py-4"
-                >
-                  Get Early Access
-                </Button>
-              </div>
-            </div>
-
-            <div className="space-y-6">
-              <div className="space-y-4">
-                <div className="flex items-start space-x-4">
-                  <div className="w-6 h-6 bg-orange-100 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
-                    <Zap className="w-3 h-3 text-orange-600" />
-                  </div>
-
-                  <div>
-                    <h3 className="font-semibold text-stone-900 mb-1">No‑Code Graph Builder</h3>
-                    <p className="text-stone-600 text-sm">
-                      Build Agentic workflows which use your tools packaged in an easy to use UI.
-                    </p>
-                  </div>
-                </div>
-
-                <div className="flex items-start space-x-4">
-                  <div className="w-6 h-6 bg-orange-100 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
-                    <Brain className="w-3 h-3 text-orange-600" />
-                  </div>
-                  <div>
-                    <h3 className="font-semibold text-stone-900 mb-1">Universal AI Integration</h3>
-                    <p className="text-stone-600 text-sm">
-                      Connect to ChatGPT, Claude, Gemini, and any MCP-compatible AI client.
-                    </p>
-                  </div>
-                </div>
-
-                <div className="flex items-start space-x-4">
-                  <div className="w-6 h-6 bg-orange-100 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
-                    <Shield className="w-3 h-3 text-orange-600" />
-                  </div>
-                  <div>
-                    <h3 className="font-semibold text-stone-900 mb-1">Production‑Ready Deployment</h3>
-                    <p className="text-stone-600 text-sm">
-                      Secure hosting, authentication, and comprehensive observability for enterprise-grade workflow
-                      deployments with possible on-prem deployment.
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
+      <section className="container mx-auto px-4 py-20 md:py-32">
+        <div className="max-w-7xl mx-auto text-center">
+          <h1 className="text-3xl sm:text-4xl md:text-[2.75rem] lg:text-5xl xl:text-[3.25rem] 2xl:text-6xl font-bold text-foreground mb-8 leading-tight tracking-tight">
+            Your Stack + WeaveStudio ={" "}
+            <span className="bg-gradient-to-r from-orange-500 via-pink-500 to-purple-500 bg-clip-text text-transparent animate-gradient bg-[length:200%_auto] whitespace-nowrap inline-block">
+              Agents assemble
+            </span>
+          </h1>
+          <p className="text-xl md:text-2xl text-muted-foreground mb-10 leading-relaxed max-w-3xl mx-auto">
+            You define the agents. We make them run. Autonomous. Simple. Fast.
+          </p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Button
+              onClick={openForm}
+              size="lg"
+              className="bg-primary text-primary-foreground hover:bg-primary/90 text-lg px-8 py-6"
+            >
+              Get Early Access
+              <ArrowRight className="ml-2 h-5 w-5" />
+            </Button>
           </div>
         </div>
       </section>
 
       {/* Product Demo */}
-      <section className="pb-20 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-12">
-            <p className="text-stone-500 italic">Weave a workflow, for one-for all</p>
-          </div>
+      <section className="container mx-auto px-4 py-8">
+        <div className="relative rounded-2xl overflow-hidden border border-stone-200 shadow-2xl">
+          <Image
+            src="/images/workflow-interface.png"
+            alt="Weavestudio workflow interface showing drag-and-drop agent builder"
+            width={1320}
+            height={660}
+            className="w-full h-auto"
+            priority
+          />
+          <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-stone-50 to-transparent pointer-events-none" />
+        </div>
+      </section>
 
-          <div className="relative">
-            <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-stone-100 to-transparent z-10 pointer-events-none"></div>
-            <div className="bg-white rounded-2xl shadow-2xl border border-stone-200 overflow-hidden">
-              <div className="bg-stone-50 px-6 py-4 border-b border-stone-200">
-                <div className="flex items-center space-x-2">
-                  <div className="flex space-x-2">
-                    <div className="w-3 h-3 bg-red-400 rounded-full"></div>
-                    <div className="w-3 h-3 bg-yellow-400 rounded-full"></div>
-                    <div className="w-3 h-3 bg-green-400 rounded-full"></div>
-                  </div>
-                  <div className="text-sm text-stone-600 ml-4">Weavestudio Workspace</div>
-                </div>
+      {/* Features Grid */}
+      <section className="container mx-auto px-4 py-20">
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-7xl mx-auto">
+          <Card className="bg-card border-stone-200 hover:shadow-lg transition-all hover:-translate-y-1">
+            <CardContent className="p-8 text-center">
+              <div className="bg-gradient-to-br from-orange-500/10 to-pink-500/10 w-20 h-20 rounded-2xl flex items-center justify-center mx-auto mb-6">
+                <Layers className="h-10 w-10 text-orange-600" />
               </div>
-              <div className="p-8">
-                <Image
-                  src="/images/workflow-interface.png"
-                  alt="AI Workflow Canvas Interface showing drag-and-drop agent orchestration"
-                  width={1320}
-                  height={660}
-                  className="w-full h-auto rounded-lg"
-                />
+              <h3 className="text-xl font-bold text-card-foreground mb-3">No Drama Llama</h3>
+              <p className="text-muted-foreground leading-relaxed">
+                We fit in smooth with your tech-stack, no setup drama.
+              </p>
+            </CardContent>
+          </Card>
+
+          <Card className="bg-card border-stone-200 hover:shadow-lg transition-all hover:-translate-y-1">
+            <CardContent className="p-8 text-center">
+              <div className="bg-gradient-to-br from-pink-500/10 to-purple-500/10 w-20 h-20 rounded-2xl flex items-center justify-center mx-auto mb-6">
+                <Rocket className="h-10 w-10 text-pink-600" />
               </div>
-            </div>
-          </div>
+              <h3 className="text-xl font-bold text-card-foreground mb-3">Faster to Market</h3>
+              <p className="text-muted-foreground leading-relaxed">
+                Go from use-case to working AI solutions in days not months!
+              </p>
+            </CardContent>
+          </Card>
+
+          <Card className="bg-card border-stone-200 hover:shadow-lg transition-all hover:-translate-y-1">
+            <CardContent className="p-8 text-center">
+              <div className="bg-gradient-to-br from-purple-500/10 to-orange-500/10 w-20 h-20 rounded-2xl flex items-center justify-center mx-auto mb-6">
+                <DollarSign className="h-10 w-10 text-purple-600" />
+              </div>
+              <h3 className="text-xl font-bold text-card-foreground mb-3">Mindful Costs</h3>
+              <p className="text-muted-foreground leading-relaxed">
+                Built to save compute, time, and money, so your team can focus on growth.
+              </p>
+            </CardContent>
+          </Card>
+
+          <Card className="bg-card border-stone-200 hover:shadow-lg transition-all hover:-translate-y-1">
+            <CardContent className="p-8 text-center">
+              <div className="bg-gradient-to-br from-cyan-500/10 to-blue-500/10 w-20 h-20 rounded-2xl flex items-center justify-center mx-auto mb-6">
+                <Sparkles className="h-10 w-10 text-cyan-600" />
+              </div>
+              <h3 className="text-xl font-bold text-card-foreground mb-3">Multimodal</h3>
+              <p className="text-muted-foreground leading-relaxed">
+                Agents can process and generate text, audio, video, and more across all modalities.
+              </p>
+            </CardContent>
+          </Card>
         </div>
       </section>
 
       {/* How It Works */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-white">
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-stone-900 mb-4">How It Works</h2>
-            <p className="text-xl text-stone-600">Four simple steps to AI-powered automation</p>
-          </div>
-
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {[
-              {
-                icon: Code,
-                title: "Define Custom Tools",
-                description:
-                  "Provide a simple JSON file describing your APIs and tools—no complex integrations required.",
-                step: "01",
-              },
-              {
-                icon: Store,
-                title: "Adopt Server Tools",
-                description:
-                  "We have a lot of integrations and tools ready to be spun up. Use these directly along with your custom tools.",
-                step: "02",
-              },
-              {
-                icon: GitBranch,
-                title: "Compose Workflows",
-                description: "Drag agents onto the canvas, link nodes, set triggers to create powerful automation.",
-                step: "03",
-              },
-              {
-                icon: Brain,
-                title: "Context‑Aware Execution",
-                description:
-                  "Our proprietary engine optimizes each run using historical data and contextual intelligence.",
-                step: "04",
-              },
-            ].map((item, index) => (
-              <div key={index} className="relative">
-                <div className="text-center">
-                  <div className="relative mb-6">
-                    <div className="w-16 h-16 bg-orange-100 rounded-2xl flex items-center justify-center mx-auto">
-                      <item.icon className="w-8 h-8 text-orange-600" />
-                    </div>
-                    <div className="absolute -top-2 -right-2 w-8 h-8 bg-stone-900 text-white rounded-full flex items-center justify-center text-sm font-bold">
-                      {item.step}
-                    </div>
-                  </div>
-                  <h3 className="text-xl font-bold mb-3 text-stone-900">{item.title}</h3>
-                  <p className="text-stone-600">{item.description}</p>
-                </div>
+      <section className="container mx-auto px-4 py-20 bg-gradient-to-b from-stone-50 to-stone-100">
+        <h2 className="text-3xl md:text-4xl font-bold text-center text-foreground mb-4">How It Works</h2>
+        <p className="text-lg text-muted-foreground text-center mb-16 max-w-2xl mx-auto">
+          Give your software a will, Give it WeaveStudio
+        </p>
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-7xl mx-auto">
+          <Card className="bg-card border-stone-200 hover:shadow-xl transition-all hover:-translate-y-1 relative overflow-hidden">
+            <CardContent className="p-8 text-center">
+              <div className="absolute -top-8 -right-8 text-8xl font-bold text-stone-100 select-none">1</div>
+              <div className="bg-gradient-to-br from-blue-500/10 to-cyan-500/10 w-20 h-20 rounded-2xl flex items-center justify-center mx-auto mb-6 relative z-10">
+                <Plug className="h-10 w-10 text-blue-600" />
               </div>
-            ))}
-          </div>
-        </div>
-      </section>
+              <h3 className="text-xl font-bold text-card-foreground mb-3 whitespace-nowrap">Works with Anything</h3>
+              <p className="text-muted-foreground leading-relaxed">
+                Can connect with any tech stack or application to use it as an environment of execution
+              </p>
+            </CardContent>
+          </Card>
 
-      {/* Solutions by Role */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-stone-900 mb-4">Solutions by Role</h2>
-            <p className="text-xl text-stone-600">Tailored for every team</p>
-          </div>
+          <Card className="bg-card border-stone-200 hover:shadow-xl transition-all hover:-translate-y-1 relative overflow-hidden">
+            <CardContent className="p-8 text-center">
+              <div className="absolute -top-8 -right-8 text-8xl font-bold text-stone-100 select-none">2</div>
+              <div className="bg-gradient-to-br from-green-500/10 to-emerald-500/10 w-20 h-20 rounded-2xl flex items-center justify-center mx-auto mb-6 relative z-10">
+                <Blocks className="h-10 w-10 text-green-600" />
+              </div>
+              <h3 className="text-xl font-bold text-card-foreground mb-3 whitespace-nowrap">Readymade Lego Blocks</h3>
+              <p className="text-muted-foreground leading-relaxed">
+                Constructs the building blocks from the execution environment for use within the blueprint
+              </p>
+            </CardContent>
+          </Card>
 
-          <div className="grid md:grid-cols-3 gap-8">
-            {[
-              {
-                icon: Users,
-                title: "Enterprises",
-                description: "Integrate seamlessly with existing software, slash automation costs.",
-                color: "blue",
-              },
-              {
-                icon: Code,
-                title: "Developers",
-                description:
-                  "Simply provide a JSON file of your tools and start building workflows. Just connect and define—we handle the rest.",
-                color: "purple",
-              },
-              {
-                icon: BarChart3,
-                title: "Analysts & Ops Teams",
-                description: "Automate repetitive tasks, gain real‑time insights.",
-                color: "green",
-              },
-            ].map((item, index) => (
-              <Card key={index} className="border-stone-200 hover:shadow-lg transition-shadow">
-                <CardContent className="p-8">
-                  <div className="mb-6">
-                    <div className="w-12 h-12 bg-orange-100 rounded-xl flex items-center justify-center">
-                      <item.icon className="w-6 h-6 text-orange-600" />
-                    </div>
-                  </div>
-                  <h3 className="text-2xl font-bold mb-4 text-stone-900">{item.title}</h3>
-                  <p className="text-stone-600">{item.description}</p>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
+          <Card className="bg-card border-stone-200 hover:shadow-xl transition-all hover:-translate-y-1 relative overflow-hidden">
+            <CardContent className="p-8 text-center">
+              <div className="absolute -top-8 -right-8 text-8xl font-bold text-stone-100 select-none">3</div>
+              <div className="bg-gradient-to-br from-purple-500/10 to-pink-500/10 w-20 h-20 rounded-2xl flex items-center justify-center mx-auto mb-6 relative z-10">
+                <Wand2 className="h-10 w-10 text-purple-600" />
+              </div>
+              <h3 className="text-xl font-bold text-card-foreground mb-3 whitespace-nowrap">Snap Merge Build</h3>
+              <p className="text-muted-foreground leading-relaxed">
+                Construct blueprint visually or with SDK to create a comprehensive goal oriented multi-agent workflow
+              </p>
+            </CardContent>
+          </Card>
+
+          <Card className="bg-card border-stone-200 hover:shadow-xl transition-all hover:-translate-y-1 relative overflow-hidden">
+            <CardContent className="p-8 text-center">
+              <div className="absolute -top-8 -right-8 text-8xl font-bold text-stone-100 select-none">4</div>
+              <div className="bg-gradient-to-br from-sky-500/10 to-blue-500/10 w-20 h-20 rounded-2xl flex items-center justify-center mx-auto mb-6 relative z-10">
+                <Cloud className="h-10 w-10 text-sky-600" />
+              </div>
+              <h3 className="text-xl font-bold text-card-foreground mb-3 whitespace-nowrap">Batteries Included!</h3>
+              <p className="text-muted-foreground leading-relaxed">
+                Full Stack Orchestration and Infrastructure out of the box, everything needed to get started
+              </p>
+            </CardContent>
+          </Card>
         </div>
       </section>
 
       {/* Footer CTA */}
-      <section id="footer" className="py-20 px-4 sm:px-6 lg:px-8 bg-stone-900">
-        <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-4xl font-bold mb-6 text-white">Ready to orchestrate intelligence?</h2>
-          <div className="flex justify-center mb-8">
-            <Button
-              size="lg"
-              onClick={handleGetEarlyAccess}
-              className="bg-white text-stone-900 hover:bg-stone-100 px-8 py-4 text-lg"
-            >
-              Get Early Access
-            </Button>
-          </div>
-          <div className="text-stone-400">
-            <p>Contact: info@weavestudio.ai</p>
+      <footer id="footer" className="bg-stone-900 text-stone-100 py-20">
+        <div className="container mx-auto px-4 text-center">
+          <h2 className="text-3xl md:text-4xl font-bold mb-4">Ready to orchestrate intelligence?</h2>
+          <p className="text-stone-400 mb-8 max-w-2xl mx-auto">
+            Join forward-thinking teams already building the future with Weavestudio
+          </p>
+          <Button onClick={openForm} size="lg" className="bg-primary text-primary-foreground hover:bg-primary/90 mb-12">
+            Get Early Access
+            <ArrowRight className="ml-2 h-4 w-4" />
+          </Button>
+          <div className="border-t border-stone-800 pt-8">
+            <p className="text-sm text-stone-500">
+              Contact us at{" "}
+              <a href="mailto:info@weavestudio.ai" className="text-primary hover:underline">
+                info@weavestudio.ai
+              </a>
+            </p>
           </div>
         </div>
-      </section>
+      </footer>
     </div>
   )
 }
